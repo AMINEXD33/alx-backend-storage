@@ -2,7 +2,5 @@
 delimiter |
 CREATE TRIGGER dec_quantity AFTER INSERT ON items
   FOR EACH ROW
-  BEGIN
-    UPDATE items SET quantity = quantity - NEW.number WHERE name = NEW.item_name
-  End;
+  UPDATE items SET quantity = quantity - NEW.number WHERE name = NEW.item_name
 delimiter;
