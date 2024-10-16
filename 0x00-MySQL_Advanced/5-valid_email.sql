@@ -2,8 +2,6 @@
 CREATE TRIGGER  validate_email 
 AFTER UPDATE
 FOR EACH ROW
-IF OLD.email = NEW.email THEN
-  NEW.valid_email = 0
-ELSE
-  NEW.valid_email = 1
+IF OLD.email <> NEW.email THEN
+  SET NEW.valid_email = 0
 END IF;
