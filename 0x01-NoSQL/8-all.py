@@ -3,7 +3,7 @@
 
 
 def list_all(mongo_collection):
-    """ """
+    """ list all docs in a collection """
     result: list = mongo_collection.find()
 
     if result.count() == 0:
