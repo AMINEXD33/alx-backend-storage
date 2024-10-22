@@ -1,2 +1,2 @@
-//list all documents in the collection school.
+// List all documents
 bd.school.find()
