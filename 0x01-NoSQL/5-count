@@ -1,0 +1,2 @@
+// count rows
+db.school.find().count()
