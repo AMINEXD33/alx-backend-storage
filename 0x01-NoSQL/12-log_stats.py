@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     docs_count = nginx_collection.count_documents({})
     print(f"{docs_count} logs")
-
+    print("Methods:")
     for method in ["GET", "POST", "PUT", "PATCH", "DELETE"]:
         method_count = nginx_collection.count_documents({"method": method})
         print(f"\tmethod {method}: {method_count}")
