@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """ a module that have one function """
 
 
