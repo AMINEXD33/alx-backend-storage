@@ -22,7 +22,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable] = None):
+    def get(self, key: str, fn: Optional[Callable] = None) -> any:
         """this function gets a value from redis with respect to the type"""
         value = self._redis.get(key)
         if not value:
