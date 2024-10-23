@@ -22,7 +22,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable] = None) -> any:
+    def get(self, key: str, fn: Optional[Callable] = None) -> Any:
         """this function gets a value from redis with respect to the type"""
         value = self._redis.get(key)
         if not value:
@@ -35,12 +35,10 @@ class Cache:
             return fn(value)
         return value
 
-    @staticmethod
     def get_int(self, value: bytes) -> int:
         """this function convert data from bytes to int"""
         return int(value)
 
-    @staticmethod
     def get_str(self, value: bytes) -> str:
         """this function convert data from bytes to str"""
         return value.decode("utf-8")
