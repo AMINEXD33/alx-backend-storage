@@ -8,7 +8,7 @@ from uuid import uuid4
     a cache implementation
 """
 class Cache:
-    def __init__(self):
+    def __init__(self) -> None:
         """a constructor function"""
         self._redis = redis.Redis()
         self._redis.flushdb()
