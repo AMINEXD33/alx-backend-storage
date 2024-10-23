@@ -4,15 +4,17 @@ implements some basic ideas of caching"""
 import redis
 from uuid import uuid4
 
-
+"""
+    a cache implementation
+"""
 class Cache:
     def __init__(self):
         """a constructor function"""
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    def store(self, data):
+    def store(self, data: any) -> str:
         """store data and return the random unique key used to store it"""
-        key = str(uuid4())
+        key: str = str(uuid4())
         self._redis.set(key, data)
         return key
