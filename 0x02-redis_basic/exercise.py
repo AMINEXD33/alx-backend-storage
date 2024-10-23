@@ -4,10 +4,23 @@ implements some basic ideas of caching"""
 import redis
 from uuid import uuid4
 from typing import Any, Callable, Optional, Union
+from functools import wraps
 
 """
     a cache implementation
 """
+
+
+def count_calls(method: Callable) -> Callable:
+    """counts the number of times a method has been called"""
+
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        """wrapper function"""
+        self._redis.incr(method.__qualname__)
+        return method(self, *args, **kwargs)
+
+    return wrapper
 
 
 class Cache:
